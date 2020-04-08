@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Beer Gallery</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+<ion-grid>
+  <div *ngFor="let beer of beers$ | async; let index=index">
+    <ion-card>
+      <ion-row>
+        <ion-col col-9>
+          <ion-card-header>
+            <ion-card-title>{{ beer.name }}</ion-card-title>
+          </ion-card-header>
+          <ion-item>
+            <ion-icon name="pin" slot="start"></ion-icon>
+            <ion-label>{{ beer.tagline }}</ion-label>        
+          </ion-item>
+          <ion-card-content>
+            {{ beer.description}}
+          </ion-card-content>
+        </ion-col>
+        <ion-col col-1>
+        </ion-col>
+        <ion-col col-2>
+          <ion-img style="width: 100px; Height: 100%; " src='{{ beer.image_url }}' onerror="this.src='https://lh6.googleusercontent.com/proxy/B98vak4HyrMSmACUPipeDwB9jobWDfwbqQ4PjqPmYvR4pK8SKWoZZfbuURguZ0ajuJymC75ECxiW9fPmrhm1Yx_Fq_S4gRDdetLycmazD5WKJCO41-4fmKnmjFHwFlSI4CzQwdFtfJADmFjlyICU3TEIcChERo0';" alt=''></ion-img>
+          </ion-col>
+      </ion-row> 
+    </ion-card>
+  </div>
+</ion-grid>
+
+ <!-- this fab is placed at the bottom right of the content viewport -->
+  <ion-fab bottom right>
+    <button ion-fab><ion-icon name="upvote"></ion-icon></button>
+  </ion-fab>
+</ion-content>
